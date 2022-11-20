@@ -20,6 +20,10 @@ const routes: Routes = [
         loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
       },
       {
+        path: 'undefined-limits',
+        loadChildren: () => import('../undefined-limits/undefined-limits-routing.module').then(m => m.UndefinedLimitsRoutingModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/theory',
         pathMatch: 'full'

@@ -11,8 +11,8 @@ export class TabsPage {
 
   constructor() {}
 
-  setTabStyle(tabStyle: string) {
-    this.tabStyle = tabStyle;
+  setTabStyle(tab: string) {
+    this.tabStyle = `tab-${tab}`;
   }
 
 }
