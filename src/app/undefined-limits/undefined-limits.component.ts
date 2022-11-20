@@ -17,6 +17,7 @@ export class UndefinedLimitsComponent implements OnInit {
   currentStep: number = 1;
   points: number = 0;
   answerSubmited: boolean = false;
+  paused: boolean = false;
 
   constructor(private undefinedLimitChallengeService: UndefinedLimitChallengeService) { }
 
@@ -106,6 +107,10 @@ export class UndefinedLimitsComponent implements OnInit {
       }
       this.answerSubmited = false;
     }, 1);
+  }
+
+  switchPaused() {
+    this.paused = !this.paused;
   }
 
   ngOnInit() {

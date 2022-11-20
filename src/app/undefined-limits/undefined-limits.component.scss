@@ -96,3 +96,43 @@ ion-content {
   font-size: 1.7em;
   align-self: center;
 }
+
+.pause-dialog {
+  width: 100%;
+  height: 300px;
+  background-color: #ffffff;
+  border-color: #000000;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 5px;
+}
+
+.font-x-lg {
+  font-size: 2em;
+}
+
+.text-yellow {
+  color: #ff4000;
+}
+
+.text-blue {
+  color: var(--ion-color-primary);
+}
+
+.background-blue {
+  --border-radius: 5px;
+  --box-shadow: 3px 5px #b1b1b1;
+  font-weight: bold;
+  height: 50px;
+  font-size: large;
+  --background: var(--ion-color-primary);
+}
+
+.background-green {
+  --border-radius: 5px;
+  --box-shadow: 3px 5px #b1b1b1;
+  font-weight: bold;
+  height: 50px;
+  font-size: large;
+  --background: var(--ion-color-success);
+}
