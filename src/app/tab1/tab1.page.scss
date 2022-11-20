@@ -5,3 +5,46 @@ ion-content {
 .tab-theory {
   --background: url(../../assets/images/bookcase_wood.png) no-repeat center center / cover;
 }
+
+ion-button {
+  --border-radius: 5px;
+  --box-shadow: 3px 5px;
+  font-weight: bold;
+  height: 60px;
+  font-size: medium;
+}
+
+.blue-background {
+  --background: var(--ion-color-primary);
+}
+
+.green-background {
+  --background: var(--ion-color-success);
+}
+
+.yellow-background {
+  --background: var(--ion-color-warning);
+}
+
+.red-background {
+  --background: var(--ion-color-danger);
+}
+
+.center-content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bookcase-background {
+  height: 70%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('../../assets/images/bookcase.png');
+  background-position: center center;
+  background-repeat: repeat-x;
+  background-size: contain;
+}
