@@ -7,6 +7,12 @@ import { Component } from '@angular/core';
 })
 export class TabsPage {
 
+  tabStyle: string = 'tab-theory';
+
   constructor() {}
+
+  setTabStyle(tabStyle: string) {
+    this.tabStyle = tabStyle;
+  }
 
 }

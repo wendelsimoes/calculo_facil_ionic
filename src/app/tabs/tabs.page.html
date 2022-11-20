@@ -1,17 +1,17 @@
 <ion-tabs>
 
-  <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="theory">
+  <ion-tab-bar slot="bottom" class="{{ tabStyle }}">
+    <ion-tab-button tab="theory" (click)='setTabStyle("tab-theory")'>
       <ion-icon name="book"></ion-icon>
       <ion-label>Teoria</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="practice">
+    <ion-tab-button tab="practice" (click)='setTabStyle("tab-practice")'>
       <ion-icon name="game-controller"></ion-icon>
       <ion-label>Prática</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="scores">
+    <ion-tab-button tab="scores" (click)='setTabStyle("tab-scores")'>
       <ion-icon name="trophy"></ion-icon>
       <ion-label>Recordes</ion-label>
     </ion-tab-button>
