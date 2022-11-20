@@ -61,7 +61,7 @@ export const UndefinedLimitChallenges: UndefinedLimitChallenge[] = [
     "challenge": "$\\lim_{x\\to0}\\frac{\\sqrt {x+2} - \\sqrt 2}{x}$",
     "step1": "$\\lim_{x\\to0}\\frac{(\\sqrt {x+2})^2 - (\\sqrt 2)^2}{x(\\sqrt {x+2} + \\sqrt 2)}$",
     "step2": "$\\lim_{x\\to0}\\frac{1}{\\sqrt {x+2} + \\sqrt 2}$",
-    "answer": "\\frac{1}{2\\sqrt 2}$",
+    "answer": "$\\frac{1}{2\\sqrt 2}$",
     "to": "$0$"
   },
   {
