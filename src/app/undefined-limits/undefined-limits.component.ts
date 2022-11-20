@@ -35,7 +35,20 @@ export class UndefinedLimitsComponent implements OnInit {
     while (this.currentChallenge === this.allChallenges[randomIndexAllChallenges]) {
       randomIndexAllChallenges = Math.floor(Math.random() * allChallengesLength);
     }
-    this.randomChallenge = this.allChallenges[randomIndexAllChallenges];
+    this.randomChallenge = { ...this.allChallenges[randomIndexAllChallenges] };
+
+    const currentChallengeTo = this.currentChallenge.challenge.match(RegExp(/to-?\d+/));
+    if (currentChallengeTo !== null) {
+      const randomChallengeStep1To = this.randomChallenge.step1.match(RegExp(/to-?\d+/));
+      if (randomChallengeStep1To !== null) {
+        this.randomChallenge.step1 = this.randomChallenge.step1.replace(randomChallengeStep1To[0], currentChallengeTo[0]);
+      }
+
+      const randomChallengeStep2To = this.randomChallenge.step2.match(RegExp(/to-?\d+/));
+      if (randomChallengeStep2To !== null) {
+        this.randomChallenge.step2 = this.randomChallenge.step2.replace(randomChallengeStep2To[0], currentChallengeTo[0]);
+      }
+    }
 
     const randomCorrectAnswerIndex: number = Math.floor(Math.random() * 2);
     this.correctAnswerIndex = randomCorrectAnswerIndex;
