@@ -15,6 +15,7 @@ export class UndefinedLimitsComponent implements OnInit {
   randomChallenge!: UndefinedLimitChallenge;
   correctAnswerIndex: number = 0;
   currentStep: number = 1;
+  points: number = 0;
 
   constructor(private undefinedLimitChallengeService: UndefinedLimitChallengeService) { }
 
@@ -30,6 +31,13 @@ export class UndefinedLimitsComponent implements OnInit {
     this.currentChallenge = this.remainderChallenges[randomIndex];
     this.remainderChallenges.splice(randomIndex, 1);
 
+    this.setRandomWrongChallenge();
+
+    const randomCorrectAnswerIndex: number = Math.floor(Math.random() * 2);
+    this.correctAnswerIndex = randomCorrectAnswerIndex;
+  }
+
+  setRandomWrongChallenge() {
     const allChallengesLength: number = this.allChallenges.length;
     let randomIndexAllChallenges: number = Math.floor(Math.random() * allChallengesLength);
     while (this.currentChallenge === this.allChallenges[randomIndexAllChallenges]) {
@@ -49,9 +57,27 @@ export class UndefinedLimitsComponent implements OnInit {
         this.randomChallenge.step2 = this.randomChallenge.step2.replace(randomChallengeStep2To[0], currentChallengeTo[0]);
       }
     }
+  }
 
-    const randomCorrectAnswerIndex: number = Math.floor(Math.random() * 2);
-    this.correctAnswerIndex = randomCorrectAnswerIndex;
+  submitAnswer(index: number) {
+    if (this.correctAnswerIndex === index) {
+      this.points += 10;
+
+      if (this.currentStep === 3) {
+        this.currentStep = 1;
+        this.setRandomCurrentChallenge();
+      } else {
+        this.currentStep += 1;
+        this.setRandomWrongChallenge();
+        const randomCorrectAnswerIndex: number = Math.floor(Math.random() * 2);
+        this.correctAnswerIndex = randomCorrectAnswerIndex;
+      }
+    } else {
+      this.points = 0;
+
+      this.currentStep = 1;
+      this.setRandomCurrentChallenge();
+    }
   }
 
   ngOnInit() {

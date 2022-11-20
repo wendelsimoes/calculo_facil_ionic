@@ -6,30 +6,34 @@
     </div>
     <p class="font-lg">Simplifique:</p>
     <div [mathjax]="currentChallenge.challenge" class="font-lg align-self"></div>
-    <p class="bold-text font-md">Passo <span>1</span></p>
+    <p class="bold-text font-md">Passo <span>{{ points }}</span></p>
 
 
     <div *ngIf="correctAnswerIndex === 0"
       [mathjax]="currentStep === 1 ? currentChallenge.step1 :
       currentStep === 2 ? currentChallenge.step2 :
-      currentChallenge.answer" class="font-lg align-self blue-box"></div>
+      currentChallenge.answer" class="font-lg align-self blue-box"
+      (click)="submitAnswer(0)"></div>
 
     <div *ngIf="correctAnswerIndex === 1"
       [mathjax]="currentStep === 1 ? randomChallenge.step1 :
       currentStep === 2 ? randomChallenge.step2 :
-      randomChallenge.answer" class="font-lg align-self blue-box"></div>
+      randomChallenge.answer" class="font-lg align-self blue-box"
+      (click)="submitAnswer(0)"></div>
 
     <p class="bold-text font-md center-text">ou</p>
 
     <div *ngIf="correctAnswerIndex === 1"
       [mathjax]="currentStep === 1 ? currentChallenge.step1 :
       currentStep === 2 ? currentChallenge.step2 :
-      currentChallenge.answer" class="font-lg align-self blue-box"></div>
+      currentChallenge.answer" class="font-lg align-self blue-box"
+      (click)="submitAnswer(1)"></div>
 
     <div *ngIf="correctAnswerIndex === 0"
       [mathjax]="currentStep === 1 ? randomChallenge.step1 :
       currentStep === 2 ? randomChallenge.step2 :
-      randomChallenge.answer" class="font-lg align-self blue-box"></div>
+      randomChallenge.answer" class="font-lg align-self blue-box"
+      (click)="submitAnswer(1)"></div>
 
     <p class="bold-text font-md center-text">?</p>
   </div>
