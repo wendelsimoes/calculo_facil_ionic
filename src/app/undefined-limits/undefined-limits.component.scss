@@ -14,6 +14,14 @@ ion-content {
   justify-content: space-between;
 }
 
+.space-around {
+  justify-content: space-around;
+}
+
+.max-height {
+  height: 100%;
+}
+
 .column {
   flex-direction: column;
 }
@@ -30,7 +38,7 @@ ion-content {
   font-size: 1.7em;
 }
 
-.font-medium {
+.font-md {
   font-size: 1.5em;
 }
 
@@ -40,4 +48,23 @@ ion-content {
 
 .padding {
   padding: 10px;
+}
+
+.align-self {
+  align-self: center;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.blue-box {
+  width: 100%;
+  height: 100px;
+  background-color: var(--ion-color-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 3px 5px #ffffff;
 }

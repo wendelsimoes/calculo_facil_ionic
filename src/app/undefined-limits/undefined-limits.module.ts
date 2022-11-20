@@ -6,12 +6,15 @@ import { UndefinedLimitsComponent } from './undefined-limits.component';
 
 import { UndefinedLimitsRoutingModule } from './undefined-limits-routing.module';
 
+import { MathjaxModule } from 'mathjax-angular';
+
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
-    UndefinedLimitsRoutingModule
+    UndefinedLimitsRoutingModule,
+    MathjaxModule.forRoot(/*Optional Config*/)
   ],
   declarations: [UndefinedLimitsComponent]
 })

@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UndefinedLimitsComponent implements OnInit {
 
+  challenge = '$\\lim_{x\\to-5}\\frac{x^2-25}{x^2+2x-15}$';
+
   constructor() { }
 
   ngOnInit() {}
