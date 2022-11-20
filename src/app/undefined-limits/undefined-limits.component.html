@@ -1,12 +1,12 @@
 <ion-content [fullscreen]="true" [scrollY]="false">
   <div class="flex column space-around max-height black-text padding">
     <div class="flex space-between">
-      <p class="bold-text font-lg margin-zero"><span>0</span> pontos</p>
+      <p class="bold-text font-lg margin-zero"><span>{{ points }}</span> pontos</p>
       <ion-icon name="pause" class="icon-lg"></ion-icon>
     </div>
     <p class="font-lg">Simplifique:</p>
     <div [mathjax]="currentChallenge.challenge" class="font-lg align-self"></div>
-    <p class="bold-text font-md">Passo <span>{{ points }}</span></p>
+    <p class="bold-text font-md">Passo <span>{{ currentStep }}</span></p>
 
 
     <div *ngIf="correctAnswerIndex === 0"
