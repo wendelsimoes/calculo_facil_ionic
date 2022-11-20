@@ -16,6 +16,7 @@ export class UndefinedLimitsComponent implements OnInit {
   correctAnswerIndex: number = 0;
   currentStep: number = 1;
   points: number = 0;
+  answerSubmited: boolean = false;
 
   constructor(private undefinedLimitChallengeService: UndefinedLimitChallengeService) { }
 
@@ -59,25 +60,34 @@ export class UndefinedLimitsComponent implements OnInit {
     }
   }
 
-  submitAnswer(index: number) {
-    if (this.correctAnswerIndex === index) {
-      this.points += 10;
+  runOnDelay(func: Function, seconds: number) {
+    setTimeout(() => {
+      func();
+    }, seconds * 1000)
+  }
 
-      if (this.currentStep === 3) {
+  submitAnswer(index: number) {
+    this.answerSubmited = true;
+    this.runOnDelay(() => {
+      if (this.correctAnswerIndex === index) {
+        this.points += 10;
+
+        if (this.currentStep === 3) {
+          this.currentStep = 1;
+          this.setRandomCurrentChallenge();
+        } else {
+          this.currentStep += 1;
+          this.setRandomWrongChallenge();
+          const randomCorrectAnswerIndex: number = Math.floor(Math.random() * 2);
+          this.correctAnswerIndex = randomCorrectAnswerIndex;
+        }
+      } else {
+        this.points = 0;
         this.currentStep = 1;
         this.setRandomCurrentChallenge();
-      } else {
-        this.currentStep += 1;
-        this.setRandomWrongChallenge();
-        const randomCorrectAnswerIndex: number = Math.floor(Math.random() * 2);
-        this.correctAnswerIndex = randomCorrectAnswerIndex;
       }
-    } else {
-      this.points = 0;
-
-      this.currentStep = 1;
-      this.setRandomCurrentChallenge();
-    }
+      this.answerSubmited = false;
+    }, 1);
   }
 
   ngOnInit() {

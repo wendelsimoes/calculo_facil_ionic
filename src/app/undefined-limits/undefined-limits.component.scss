@@ -67,4 +67,32 @@ ion-content {
   align-items: center;
   border-radius: 5px;
   box-shadow: 3px 5px #ffffff;
+  font-size: 1.7em;
+  align-self: center;
+}
+
+.red-box {
+  width: 100%;
+  height: 100px;
+  background-color: var(--ion-color-danger);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 3px 5px #ffffff;
+  font-size: 1.7em;
+  align-self: center;
+}
+
+.green-box {
+  width: 100%;
+  height: 100px;
+  background-color: var(--ion-color-success);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 3px 5px #ffffff;
+  font-size: 1.7em;
+  align-self: center;
 }
