@@ -66,7 +66,25 @@ export class UndefinedLimitsComponent implements OnInit {
     }, seconds * 1000)
   }
 
+  playCorrectAnswerAudio() {
+    const audio = new Audio('../../assets/audio/correct_answer_audio.mp3');
+    audio.load();
+    audio.play();
+  }
+
+  playWrongAnswerAudio() {
+    const audio = new Audio('../../assets/audio/wrong_answer_audio.mp3');
+    audio.load();
+    audio.play();
+  }
+
   submitAnswer(index: number) {
+    if (this.correctAnswerIndex === index) {
+      this.playCorrectAnswerAudio();
+    } else {
+      this.playWrongAnswerAudio();
+    }
+
     this.answerSubmited = true;
     this.runOnDelay(() => {
       if (this.correctAnswerIndex === index) {
