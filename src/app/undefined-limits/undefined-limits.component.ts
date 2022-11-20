@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import UndefinedLimitChallengeService from 'src/services/undefined-limit-challenge-service';
+import UndefinedLimitChallenge from 'src/shared/undefined-limit-challenge';
 
 @Component({
   selector: 'app-undefined-limits',
@@ -7,10 +9,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UndefinedLimitsComponent implements OnInit {
 
-  challenge = '$\\lim_{x\\to-5}\\frac{x^2-25}{x^2+2x-15}$';
+  allChallenges: UndefinedLimitChallenge[] = [];
+  remainderChallenges: UndefinedLimitChallenge[] = [];
+  currentChallenge!: UndefinedLimitChallenge;
+  randomChallenge!: UndefinedLimitChallenge;
+  correctAnswerIndex: number = 0;
+  currentStep: number = 1;
 
-  constructor() { }
+  constructor(private undefinedLimitChallengeService: UndefinedLimitChallengeService) { }
 
-  ngOnInit() {}
+  setRandomCurrentChallenge() {
+    let remainderChallengesLength: number = this.remainderChallenges.length;
+
+    if (remainderChallengesLength <= 0) {
+      this.remainderChallenges = [...this.allChallenges];
+      remainderChallengesLength = this.remainderChallenges.length;
+    }
+
+    const randomIndex: number = Math.floor(Math.random() * remainderChallengesLength);
+    this.currentChallenge = this.remainderChallenges[randomIndex];
+    this.remainderChallenges.splice(randomIndex, 1);
+
+    const allChallengesLength: number = this.allChallenges.length;
+    let randomIndexAllChallenges: number = Math.floor(Math.random() * allChallengesLength);
+    while (this.currentChallenge === this.allChallenges[randomIndexAllChallenges]) {
+      randomIndexAllChallenges = Math.floor(Math.random() * allChallengesLength);
+    }
+    this.randomChallenge = this.allChallenges[randomIndexAllChallenges];
+
+    const randomCorrectAnswerIndex: number = Math.floor(Math.random() * 2);
+    this.correctAnswerIndex = randomCorrectAnswerIndex;
+  }
+
+  ngOnInit() {
+    this.allChallenges = this.undefinedLimitChallengeService.getAllUndefinedLimitChallenges();
+    this.remainderChallenges = [...this.allChallenges];
+    this.setRandomCurrentChallenge();
+  }
 
 }

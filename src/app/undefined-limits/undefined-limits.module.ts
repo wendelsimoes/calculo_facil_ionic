@@ -7,6 +7,7 @@ import { UndefinedLimitsComponent } from './undefined-limits.component';
 import { UndefinedLimitsRoutingModule } from './undefined-limits-routing.module';
 
 import { MathjaxModule } from 'mathjax-angular';
+import UndefinedLimitChallengeService from 'src/services/undefined-limit-challenge-service';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { MathjaxModule } from 'mathjax-angular';
     UndefinedLimitsRoutingModule,
     MathjaxModule.forRoot(/*Optional Config*/)
   ],
-  declarations: [UndefinedLimitsComponent]
+  declarations: [UndefinedLimitsComponent],
+  providers: [UndefinedLimitChallengeService]
 })
-export class UndefinedLimitsModule {}
+export class UndefinedLimitsModule { }
