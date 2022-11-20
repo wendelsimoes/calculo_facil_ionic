@@ -5,3 +5,54 @@ ion-content {
 .tab-practice {
   --background: url(../../assets/images/retro_arcade_color_tint.png) no-repeat 200% center / cover;
 }
+
+ion-button {
+  --border-radius: 5px;
+  --box-shadow: 3px 5px;
+  font-weight: bold;
+  height: 60px;
+  font-size: medium;
+}
+
+.text-small {
+  font-size: small;
+}
+
+.text-black {
+  color: #000000;
+}
+
+.black-background {
+  --background: #000000;
+}
+
+.purple-background {
+  --background: #50144b;
+}
+
+.yellow-background {
+  --background: #e5e917;
+}
+
+.red-background {
+  --background: #af1738;
+}
+
+.center-content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bookcase-background {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('../../assets/images/retro_arcade.png');
+  background-position: center center;
+  background-repeat: repeat-x;
+  background-size: contain;
+}
