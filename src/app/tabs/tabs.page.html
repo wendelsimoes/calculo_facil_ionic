@@ -1,6 +1,6 @@
 <ion-tabs ng-hide="$root.hideTabs" (ionTabsWillChange)="setTabStyle($event.tab)">
 
-  <ion-tab-bar *ngIf="tabStyle !== 'tab-undefined-limits'" slot="bottom" class="{{ tabStyle }}">
+  <ion-tab-bar *ngIf="tabStyle !== 'tab-undefined-limits' && tabStyle !== 'tab-place-derivatives'" slot="bottom" class="{{ tabStyle }}">
     <ion-tab-button tab="theory">
       <ion-icon name="book"></ion-icon>
       <ion-label>Teoria</ion-label>

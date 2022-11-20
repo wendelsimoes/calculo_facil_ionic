@@ -24,6 +24,10 @@ const routes: Routes = [
         loadChildren: () => import('../undefined-limits/undefined-limits-routing.module').then(m => m.UndefinedLimitsRoutingModule)
       },
       {
+        path: 'place-derivatives',
+        loadChildren: () => import('../place-derivatives/place-derivatives-routing.module').then(m => m.PlaceDerivativesRoutingModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/theory',
         pathMatch: 'full'
@@ -40,4 +44,4 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
 })
-export class TabsPageRoutingModule {}
+export class TabsPageRoutingModule { }
