@@ -1,3 +1,43 @@
 ion-content {
   --background: url(../../assets/images/cloud_background.jpg) repeat 100% 100% / contain;
 }
+
+.margin-zero {
+  margin: 0;
+}
+
+.flex {
+  display: flex;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.black-text {
+  color: #000000;
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+.font-lg {
+  font-size: 1.7em;
+}
+
+.font-medium {
+  font-size: 1.5em;
+}
+
+.icon-lg {
+  font-size: 2em;
+}
+
+.padding {
+  padding: 10px;
+}
