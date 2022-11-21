@@ -133,10 +133,10 @@ export const DerivativeChallenges: DerivativeChallenge[] = [
   },
   {
     "challenge": "f\\left(x\\right)=2x+8x^{-2}",
-    "answer": "2+16x^{-3}",
+    "answer": "2-16x^{-3}",
     "answerMonomials": [
       "2",
-      "+16x^{-3}"
+      "-16x^{-3}"
     ]
   },
   {

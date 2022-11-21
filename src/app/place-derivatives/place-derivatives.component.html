@@ -1,13 +1,42 @@
 <ion-content [fullscreen]="true" [scrollY]="false">
   <div class="green-board">
-    <div *ngFor="let derivative of currentChallenges" class="font-lg margin-bottom light-green-board low-padding">
-      <div [mathjax]="'$'+derivative.challenge+'$'" class="margin-bottom"></div>
-      <div [mathjax]="'$f\'=$'"></div>
+    <div
+      class="font-lg margin-bottom light-green-board low-padding"
+      cdkDropList
+      #challenge1Monomials="cdkDropList"
+      [cdkDropListConnectedTo]="[allMonomialsList]"
+      [cdkDropListData]="currentChallenge1Monomials"
+      (cdkDropListDropped)="drop($event, 1)">
+      <div [mathjax]="'$'+currentChallenge1.challenge+'$'" class="margin-bottom"></div>
+      <div [mathjax]="'$'+currentChallenge1Monomials.join('')+'$'"></div>
     </div>
-    <div class="flex wrap">
+    <div
+      class="font-lg margin-bottom light-green-board low-padding"
+      cdkDropList
+      #challenge2Monomials="cdkDropList"
+      [cdkDropListConnectedTo]="[allMonomialsList]"
+      [cdkDropListData]="currentChallenge2Monomials"
+      (cdkDropListDropped)="drop($event, 2)">
+      <div [mathjax]="'$'+currentChallenge2.challenge+'$'" class="margin-bottom"></div>
+      <div [mathjax]="'$'+currentChallenge2Monomials.join('')+'$'"></div>
+    </div>
+    <div
+      class="font-lg margin-bottom light-green-board low-padding"
+      cdkDropList
+      #challenge3Monomials="cdkDropList"
+      [cdkDropListConnectedTo]="[allMonomialsList]"
+      [cdkDropListData]="currentChallenge3Monomials"
+      (cdkDropListDropped)="drop($event, 3)">
+      <div [mathjax]="'$'+currentChallenge3.challenge+'$'" class="margin-bottom"></div>
+      <div [mathjax]="'$'+currentChallenge3Monomials.join('')+'$'"></div>
+    </div>
+
+    <div cdkDropList #allMonomialsList="cdkDropList"
+    [cdkDropListConnectedTo]="[challenge1Monomials, challenge2Monomials, challenge3Monomials]"
+    [cdkDropListData]="currentChallengesMonomials" class="flex wrap">
       <span *ngFor="let monomial of currentChallengesMonomials"
       class="font-md light-green-board low-padding inline-block margin-all"
-      [mathjax]="'$'+monomial+'$'"></span>
+      [mathjax]="'$'+monomial+'$'" cdkDrag [cdkDragData]="monomial"></span>
     </div>
   </div>
 </ion-content>

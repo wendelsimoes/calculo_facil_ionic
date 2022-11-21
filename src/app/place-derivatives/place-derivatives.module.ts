@@ -8,6 +8,7 @@ import { PlaceDerivativesRoutingModule } from './place-derivatives-routing.modul
 
 import { MathjaxModule } from 'mathjax-angular';
 import DerivativeChallengeService from 'src/services/derivate-challenge-service';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import DerivativeChallengeService from 'src/services/derivate-challenge-service'
     CommonModule,
     FormsModule,
     PlaceDerivativesRoutingModule,
-    MathjaxModule.forRoot(/*Optional Config*/)
+    MathjaxModule.forRoot(/*Optional Config*/),
+    DragDropModule
   ],
   declarations: [PlaceDerivativesComponent],
   providers: [DerivativeChallengeService]

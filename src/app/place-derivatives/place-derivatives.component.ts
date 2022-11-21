@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import DerivativeChallengeService from 'src/services/derivate-challenge-service';
 import DerivativeChallenge from 'src/shared/derivative-challenge';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-place-derivatives',
@@ -9,7 +10,14 @@ import DerivativeChallenge from 'src/shared/derivative-challenge';
 })
 export class PlaceDerivativesComponent implements OnInit {
 
-  currentChallenges: DerivativeChallenge[] = [];
+  currentChallenge1!: DerivativeChallenge;
+  currentChallenge2!: DerivativeChallenge;
+  currentChallenge3!: DerivativeChallenge;
+
+  currentChallenge1Monomials: string[] = ['f\'='];
+  currentChallenge2Monomials: string[] = ['f\'='];
+  currentChallenge3Monomials: string[] = ['f\'='];
+
   currentChallengesMonomials: string[] = [];
 
   constructor(private derivativeChallengeService: DerivativeChallengeService) { }
@@ -44,7 +52,31 @@ export class PlaceDerivativesComponent implements OnInit {
     const monomials: string[] = [...challenge1.answerMonomials, ...challenge2.answerMonomials, ...challenge3.answerMonomials];
     this.shuffleArray(monomials);
     this.currentChallengesMonomials = monomials;
-    this.currentChallenges = [challenge1, challenge2, challenge3];
+    this.currentChallenge1 = { ...challenge1 };
+    this.currentChallenge2 = { ...challenge2 };
+    this.currentChallenge3 = { ...challenge3 };
+  }
+
+  drop(event: CdkDragDrop<string[]>, containerIndex: number) {
+    console.log(event.previousContainer.data);
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      const challenge: DerivativeChallenge = containerIndex === 1 ? this.currentChallenge1 :
+        containerIndex === 2 ? this.currentChallenge2 : this.currentChallenge3;
+
+      if (challenge.answerMonomials[0] === event.previousContainer.data[event.previousIndex]) {
+        transferArrayItem(
+          event.previousContainer.data,
+          event.container.data,
+          event.previousIndex,
+          event.container.data.length,
+        );
+        challenge.answerMonomials.shift();
+      } else {
+        moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      }
+    }
   }
 
   ngOnInit() {
