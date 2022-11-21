@@ -35,6 +35,10 @@ export class DerivativeHeroComponent implements OnInit {
   }, 50);
 
   newExpressionInterval = setInterval(() => {
+    if (this.songDuration < 10) {
+      clearInterval(this.newExpressionInterval);
+    }
+
     const randomBoolean = Math.random() < 0.5;
     if (randomBoolean) {
       const randomIndex: number = Math.floor(Math.random() * 3);
