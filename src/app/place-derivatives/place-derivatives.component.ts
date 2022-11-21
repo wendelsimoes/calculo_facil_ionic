@@ -10,8 +10,18 @@ import DerivativeChallenge from 'src/shared/derivative-challenge';
 export class PlaceDerivativesComponent implements OnInit {
 
   currentChallenges: DerivativeChallenge[] = [];
+  currentChallengesMonomials: string[] = [];
 
   constructor(private derivativeChallengeService: DerivativeChallengeService) { }
+
+  shuffleArray(array: string[]) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+  }
 
   setCurrentChallenges() {
     const challenges: DerivativeChallenge[] = this.derivativeChallengeService.getAllDerivativeChallenges();
@@ -26,7 +36,15 @@ export class PlaceDerivativesComponent implements OnInit {
       randomIndex3 = Math.floor(Math.random() * challengesLength);
     }
 
-    this.currentChallenges = [challenges[randomIndex1], challenges[randomIndex2], challenges[randomIndex3]];
+
+    const challenge1: DerivativeChallenge = challenges[randomIndex1];
+    const challenge2: DerivativeChallenge = challenges[randomIndex2];
+    const challenge3: DerivativeChallenge = challenges[randomIndex3];
+
+    const monomials: string[] = [...challenge1.answerMonomials, ...challenge2.answerMonomials, ...challenge3.answerMonomials];
+    this.shuffleArray(monomials);
+    this.currentChallengesMonomials = monomials;
+    this.currentChallenges = [challenge1, challenge2, challenge3];
   }
 
   ngOnInit() {

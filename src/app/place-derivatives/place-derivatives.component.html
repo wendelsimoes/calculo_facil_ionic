@@ -4,5 +4,10 @@
       <div [mathjax]="'$'+derivative.challenge+'$'" class="margin-bottom"></div>
       <div [mathjax]="'$f\'=$'"></div>
     </div>
+    <div class="flex wrap">
+      <span *ngFor="let monomial of currentChallengesMonomials"
+      class="font-md light-green-board low-padding inline-block margin-all"
+      [mathjax]="'$'+monomial+'$'"></span>
+    </div>
   </div>
 </ion-content>
