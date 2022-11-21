@@ -69,12 +69,32 @@ export class PlaceDerivativesComponent implements OnInit {
     this.setCurrentChallenges();
   }
 
+  playCorrectAnswerAudio() {
+    const audio = new Audio('../../assets/audio/correct_answer_audio.mp3');
+    audio.load();
+    audio.play();
+  }
+
+  playWrongAnswerAudio() {
+    const audio = new Audio('../../assets/audio/wrong_answer_audio.mp3');
+    audio.load();
+    audio.play();
+  }
+
+  playGameCompletionAudio() {
+    const audio = new Audio('../../assets/audio/game_completion_audio.mp3');
+    audio.load();
+    audio.play();
+  }
+
   checkForLevelEnd() {
     if (this.currentChallengesMonomials.length <= 0) {
+      this.playGameCompletionAudio();
       this.level += 1;
       this.levelEnded = true;
     }
   }
+
 
   drop(event: CdkDragDrop<string[]>, containerIndex: number) {
     if (event.previousContainer === event.container) {
@@ -84,6 +104,7 @@ export class PlaceDerivativesComponent implements OnInit {
         containerIndex === 2 ? this.currentChallenge2 : this.currentChallenge3;
 
       if (challenge.answerMonomials[event.container.data.length - 1] === event.previousContainer.data[event.previousIndex]) {
+        this.playCorrectAnswerAudio();
         transferArrayItem(
           event.previousContainer.data,
           event.container.data,
@@ -91,6 +112,7 @@ export class PlaceDerivativesComponent implements OnInit {
           event.container.data.length,
         );
       } else {
+        this.playWrongAnswerAudio();
         moveItemInArray(event.previousContainer.data, event.previousIndex, event.currentIndex);
       }
 
