@@ -1,3 +1,5 @@
-<p>
-  place-derivatives works!
-</p>
+<ion-content [fullscreen]="true" [scrollY]="false">
+  <div class="green-board">
+    <div *ngFor="let derivative of currentChallenges" [mathjax]="'$'+derivative.challenge+'$'"></div>
+  </div>
+</ion-content>

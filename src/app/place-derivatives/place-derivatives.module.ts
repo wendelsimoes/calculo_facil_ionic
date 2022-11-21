@@ -7,7 +7,7 @@ import { PlaceDerivativesComponent } from './place-derivatives.component';
 import { PlaceDerivativesRoutingModule } from './place-derivatives-routing.module';
 
 import { MathjaxModule } from 'mathjax-angular';
-import UndefinedLimitChallengeService from 'src/services/undefined-limit-challenge-service';
+import DerivativeChallengeService from 'src/services/derivate-challenge-service';
 
 @NgModule({
   imports: [
@@ -18,6 +18,6 @@ import UndefinedLimitChallengeService from 'src/services/undefined-limit-challen
     MathjaxModule.forRoot(/*Optional Config*/)
   ],
   declarations: [PlaceDerivativesComponent],
-  providers: [UndefinedLimitChallengeService]
+  providers: [DerivativeChallengeService]
 })
 export class PlaceDerivativesModule { }
