@@ -40,6 +40,11 @@ ion-content {
   border-right: 3px solid #ffffff;
 }
 
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
 .flex-1 {
   flex: 1 1 auto;
   justify-content: center;
@@ -58,6 +63,21 @@ ion-content {
 
 .bg-white {
   background-color: #ffffff;
+  color: #000000;
+}
+
+.bg-red {
+  background-color: var(--ion-color-danger);
+  color: #000000;
+}
+
+.bg-green {
+  background-color: var(--ion-color-success);
+  color: #000000;
+}
+
+.bg-blue {
+  background-color: var(--ion-color-primary);
   color: #000000;
 }
 

@@ -1,9 +1,18 @@
 <ion-content  [fullscreen]="true" [scrollY]="false">
   <div class="center column">
     <div class="trapezoid-guitar">
-      <div class="flex-1"></div>
-      <div class="dividers flex-1"></div>
-      <div class="flex-1"></div>
+      <div class="flex-1">
+        <div class="guitar-button bg-red font-md" [mathjax]="'$3^3$'"></div>
+        <div *ngFor="let i of numbers" class="flex-1"></div>
+      </div>
+      <div class="dividers flex-1 flex-column">
+        <div [ngStyle]="{'order': 30}" class="guitar-button bg-green font-md" [mathjax]="'$3^3$'"></div>
+        <div *ngFor="let i of numbers" class="bg-blue flex-1" [ngStyle]="{'order': i, 'height': (100.0 / numbers.length) + '%'}"></div>
+      </div>
+      <div class="flex-1">
+        <div class="guitar-button bg-blue font-md" [mathjax]="'$3^3$'"></div>
+        <div *ngFor="let i of numbers" class="flex-1"></div>
+      </div>
     </div>
     <div class="trapezoid-buttons">
       <div class="flex-1">

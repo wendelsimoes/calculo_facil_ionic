@@ -7,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DerivativeHeroComponent implements OnInit {
 
+  numbers: number[] = [];
+
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.numbers = Array(50).fill(0).map((x, i) => i);
+  }
 
 }
