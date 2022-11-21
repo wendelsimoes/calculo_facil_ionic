@@ -28,6 +28,10 @@ const routes: Routes = [
         loadChildren: () => import('../place-derivatives/place-derivatives-routing.module').then(m => m.PlaceDerivativesRoutingModule)
       },
       {
+        path: 'derivative-hero',
+        loadChildren: () => import('../derivative-hero/derivative-hero-routing.module').then(m => m.DerivativeHeroRoutingModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/theory',
         pathMatch: 'full'

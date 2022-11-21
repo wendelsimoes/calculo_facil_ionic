@@ -1,0 +1,29 @@
+ion-content {
+  --background: url(../../assets/images/rock-background.png) repeat 100% 100vh / cover;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.trapezoid {
+  width: 90%;
+  height: 80vh;
+  background-color: #000000D0;
+  transform: perspective(10px) rotateX(0.5deg);
+  margin: 50px;
+  display: flex;
+}
+
+.dividers {
+  border-left: 3px solid #ffffff;
+  border-right: 3px solid #ffffff;
+}
+
+.flex-1 {
+  flex: 1 1 auto;
+}
