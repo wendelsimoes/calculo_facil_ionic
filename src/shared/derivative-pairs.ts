@@ -24,5 +24,41 @@ export const DerivativePairs: DerivativePair[] = [
   {
     "expression": "(\\cosec x)'",
     "derivative": "-\\cosec x * \\cot x"
+  },
+  {
+    "expression": "9",
+    "derivative": "0"
+  },
+  {
+    "expression": "x",
+    "derivative": "1"
+  },
+  {
+    "expression": "4x",
+    "derivative": "4"
+  },
+  {
+    "expression": "x^2",
+    "derivative": "2x"
+  },
+  {
+    "expression": "\\sqrt{x}",
+    "derivative": "(1/2)x^-\\frac{1}{2}"
+  },
+  {
+    "expression": "e^x",
+    "derivative": "e^x"
+  },
+  {
+    "expression": "10^x",
+    "derivative": "\\ln{10}*10^x"
+  },
+  {
+    "expression": "\\ln{x}",
+    "derivative": "\\frac{1}{x}"
+  },
+  {
+    "expression": "\\log(10, x)",
+    "derivative": "\\frac{1}{x*\\ln(10)}"
   }
 ];
