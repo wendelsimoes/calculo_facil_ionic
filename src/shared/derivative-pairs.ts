@@ -58,7 +58,7 @@ export const DerivativePairs: DerivativePair[] = [
     "derivative": "\\frac{1}{x}"
   },
   {
-    "expression": "\\log(10, x)",
+    "expression": "log_{10}(x)",
     "derivative": "\\frac{1}{x*\\ln(10)}"
   }
 ];
