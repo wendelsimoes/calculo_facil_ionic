@@ -1,5 +1,8 @@
 <ion-content [fullscreen]="true" [scrollY]="false">
   <div class="green-board">
-    <div *ngFor="let derivative of currentChallenges" [mathjax]="'$'+derivative.challenge+'$'"></div>
+    <div *ngFor="let derivative of currentChallenges" class="font-lg margin-bottom light-green-board low-padding">
+      <div [mathjax]="'$'+derivative.challenge+'$'" class="margin-bottom"></div>
+      <div [mathjax]="'$f\'=$'"></div>
+    </div>
   </div>
 </ion-content>
