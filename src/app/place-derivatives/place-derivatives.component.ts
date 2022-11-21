@@ -20,6 +20,9 @@ export class PlaceDerivativesComponent implements OnInit {
 
   currentChallengesMonomials: string[] = [];
 
+  level: number = 1;
+  levelEnded: boolean = false;
+
   constructor(private derivativeChallengeService: DerivativeChallengeService) { }
 
   shuffleArray(array: string[]) {
@@ -57,25 +60,41 @@ export class PlaceDerivativesComponent implements OnInit {
     this.currentChallenge3 = { ...challenge3 };
   }
 
+  newLevel() {
+    this.levelEnded = !this.levelEnded;
+    this.currentChallenge1Monomials = ['f\'='];
+    this.currentChallenge2Monomials = ['f\'='];
+    this.currentChallenge3Monomials = ['f\'='];
+    this.currentChallengesMonomials = [];
+    this.setCurrentChallenges();
+  }
+
+  checkForLevelEnd() {
+    if (this.currentChallengesMonomials.length <= 0) {
+      this.level += 1;
+      this.levelEnded = true;
+    }
+  }
+
   drop(event: CdkDragDrop<string[]>, containerIndex: number) {
-    console.log(event.previousContainer.data);
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
       const challenge: DerivativeChallenge = containerIndex === 1 ? this.currentChallenge1 :
         containerIndex === 2 ? this.currentChallenge2 : this.currentChallenge3;
 
-      if (challenge.answerMonomials[0] === event.previousContainer.data[event.previousIndex]) {
+      if (challenge.answerMonomials[event.container.data.length - 1] === event.previousContainer.data[event.previousIndex]) {
         transferArrayItem(
           event.previousContainer.data,
           event.container.data,
           event.previousIndex,
           event.container.data.length,
         );
-        challenge.answerMonomials.shift();
       } else {
-        moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+        moveItemInArray(event.previousContainer.data, event.previousIndex, event.currentIndex);
       }
+
+      this.checkForLevelEnd();
     }
   }
 

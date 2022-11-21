@@ -126,9 +126,9 @@ export const DerivativeChallenges: DerivativeChallenge[] = [
   },
   {
     "challenge": "f\\left(x\\right)=1-6x^{\\frac{5}{2}}",
-    "answer": "15x^{\\frac{3}{2}}",
+    "answer": "-15x^{\\frac{3}{2}}",
     "answerMonomials": [
-      "15x^{\\frac{3}{2}}"
+      "-15x^{\\frac{3}{2}}"
     ]
   },
   {

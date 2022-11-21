@@ -5,6 +5,10 @@ ion-content {
   --padding-top: 15px;
 }
 
+.cloud-background {
+  --background: url(../../assets/images/cloud_background.jpg) repeat 100% 100% / contain;
+}
+
 .green-board {
   width: 100%;
   height: 100%;
@@ -21,7 +25,7 @@ ion-content {
 }
 
 .font-lg {
-  font-size: 1.4em;
+  font-size: 1.3em;
 }
 
 .margin-bottom {
@@ -46,4 +50,72 @@ ion-content {
 
 .margin-all {
   margin: 5px;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.space-around {
+  justify-content: space-around;
+}
+
+.max-height {
+  height: 100%;
+}
+
+.black-text {
+  color: #000000;
+}
+
+.padding {
+  padding: 10px;
+}
+
+.pause-dialog {
+  width: 100%;
+  height: 250px;
+  background-color: #ffffff;
+  border-color: #000000;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 5px;
+}
+
+.font-x-lg {
+  font-size: 1.7em;
+}
+
+.text-yellow {
+  color: #ff4000;
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.background-blue {
+  --border-radius: 5px;
+  --box-shadow: 3px 5px #b1b1b1;
+  font-weight: bold;
+  height: 50px;
+  font-size: large;
+  --background: var(--ion-color-primary);
+}
+
+.background-green {
+  --border-radius: 5px;
+  --box-shadow: 3px 5px #b1b1b1;
+  font-weight: bold;
+  height: 50px;
+  font-size: large;
+  --background: var(--ion-color-success);
+}
+
+.text-blue {
+  color: var(--ion-color-primary);
 }
