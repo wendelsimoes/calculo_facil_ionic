@@ -21,39 +21,39 @@ export class DerivativeHeroComponent implements OnInit {
   buttonDerivative2!: string;
   buttonDerivative3!: string;
 
-  cordsAnimation = setInterval(() => {
+  animation = setInterval(() => {
+    this.songDuration -= 0.05;
     this.leftQueue.forEach((item: GuitarQueue) => {
-      item.order += 1;
+      item.top += 1.75;
     });
     this.middleQueue.forEach((item: GuitarQueue) => {
-      item.order += 1;
+      item.top += 1.75;
     });
     this.rightQueue.forEach((item: GuitarQueue) => {
-      item.order += 1;
+      item.top += 1.75;
     });
-  }, 250);
+  }, 50);
 
-  eachSecond = setInterval(() => {
-    this.songDuration -= 1;
-    const randomDelay = Math.floor(Math.random() * 4) + 3;
-    if (Math.floor(this.songDuration) % randomDelay === 0) {
+  newExpressionInterval = setInterval(() => {
+    const randomBoolean = Math.random() < 0.5;
+    if (randomBoolean) {
       const randomIndex: number = Math.floor(Math.random() * 3);
       if (this.expressionsQueue.length > 0) {
         const pair = this.expressionsQueue.shift();
         switch (randomIndex) {
           case 0:
             if (pair !== undefined) {
-              this.leftQueue.push({ derivativePair: pair, order: 0 });
+              this.leftQueue.push({ derivativePair: pair, top: 0 });
             }
             break;
           case 1:
             if (pair !== undefined) {
-              this.middleQueue.push({ derivativePair: pair, order: 0 });
+              this.middleQueue.push({ derivativePair: pair, top: 0 });
             }
             break;
           case 2:
             if (pair !== undefined) {
-              this.rightQueue.push({ derivativePair: pair, order: 0 });
+              this.rightQueue.push({ derivativePair: pair, top: 0 });
             }
             break;
           default:
@@ -61,7 +61,7 @@ export class DerivativeHeroComponent implements OnInit {
         }
       }
     }
-  }, 1000);
+  }, 3000);
 
   constructor(private derivativePairService: DerivativePairService) { }
 
