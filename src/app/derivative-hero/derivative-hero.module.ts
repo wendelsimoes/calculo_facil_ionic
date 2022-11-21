@@ -7,8 +7,8 @@ import { DerivativeHeroComponent } from './derivative-hero.component';
 import { DerivativeHeroRoutingModule } from './derivative-hero-routing.module';
 
 import { MathjaxModule } from 'mathjax-angular';
-import DerivativeChallengeService from 'src/services/derivate-challenge-service';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import DerivativePairService from 'src/services/derivative-pair-service';
 
 @NgModule({
   imports: [
@@ -20,6 +20,6 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     DragDropModule
   ],
   declarations: [DerivativeHeroComponent],
-  providers: [DerivativeChallengeService]
+  providers: [DerivativePairService]
 })
 export class DerivativeHeroModule { }

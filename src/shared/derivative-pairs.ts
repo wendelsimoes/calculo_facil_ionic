@@ -15,15 +15,15 @@ export const DerivativePairs: DerivativePair[] = [
   },
   {
     "expression": "(\\cot x)'",
-    "derivative": "-\\cosec^2x"
+    "derivative": "-cosec^2x"
   },
   {
     "expression": "(\\sec x)'",
     "derivative": "\\sec x * \\tan x"
   },
   {
-    "expression": "(\\cosec x)'",
-    "derivative": "-\\cosec x * \\cot x"
+    "expression": "(cosec x)'",
+    "derivative": "-cosec x * \\cot x"
   },
   {
     "expression": "9",

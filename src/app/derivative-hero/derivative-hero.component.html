@@ -2,17 +2,23 @@
   <p class="song-duration-timer">{{ songDuration * 1000 | date:'mm:ss' }}</p>
   <div class="center column">
     <div class="trapezoid-guitar">
-      <div class="flex-1">
-        <div class="guitar-button bg-red font-md" [mathjax]="'$3^3$'"></div>
-        <div *ngFor="let i of numbers" class="flex-1"></div>
-      </div>
-      <div class="dividers flex-1 flex-column">
-        <div [ngStyle]="{'order': 30}" class="guitar-button bg-green font-md" [mathjax]="'$3^3$'"></div>
+      <div class="flex-1 flex-column">
+        <div style="width: 80px;"></div>
+        <div *ngFor="let item of leftQueue" [ngStyle]="{'order': item.order}" class="guitar-button bg-red font-md"
+        [mathjax]="'$'+item.derivativePair.expression+'$'"></div>
         <div *ngFor="let i of numbers" class="flex-1" [ngStyle]="{'order': i, 'height': (100.0 / numbers.length) + '%'}"></div>
       </div>
-      <div class="flex-1">
-        <div class="guitar-button bg-blue font-md" [mathjax]="'$3^3$'"></div>
-        <div *ngFor="let i of numbers" class="flex-1"></div>
+      <div class="dividers flex-1 flex-column">
+        <div style="width: 80px;"></div>
+        <div *ngFor="let item of middleQueue" [ngStyle]="{'order': item.order}" class="guitar-button bg-green font-md"
+        [mathjax]="'$'+item.derivativePair.expression+'$'"></div>
+        <div *ngFor="let i of numbers" class="flex-1" [ngStyle]="{'order': i, 'height': (100.0 / numbers.length) + '%'}"></div>
+      </div>
+      <div class="flex-1 flex-column">
+        <div style="width: 80px;"></div>
+        <div *ngFor="let item of rightQueue" [ngStyle]="{'order': item.order}" class="guitar-button bg-blue font-md"
+        [mathjax]="'$'+item.derivativePair.expression+'$'"></div>
+        <div *ngFor="let i of numbers" class="flex-1" [ngStyle]="{'order': i, 'height': (100.0 / numbers.length) + '%'}"></div>
       </div>
     </div>
     <div class="trapezoid-buttons">
