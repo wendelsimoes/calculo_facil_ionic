@@ -42,4 +42,25 @@ ion-content {
 
 .flex-1 {
   flex: 1 1 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.guitar-button {
+  width: 80px;
+  height: 80px;
+  margin: 10px auto;
+  border-radius: 100%;
+  border: 5px solid #000000;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.bg-white {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.font-md {
+  font-size: 1.2em;
 }
