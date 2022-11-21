@@ -65,7 +65,17 @@ export class DerivativeHeroComponent implements OnInit {
 
   constructor(private derivativePairService: DerivativePairService) { }
 
+  shuffleArray(array: any[]) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+  }
+
   configureLevel() {
+    this.derivativePairs = this.derivativePairService.getAllDerivativePairs();
     const audio = new Audio('../../assets/audio/songs/no-copy-1.mp3');
     audio.onloadedmetadata = (e: any) => {
       const songDuration: number = e.currentTarget.duration;
@@ -75,6 +85,7 @@ export class DerivativeHeroComponent implements OnInit {
         this.expressionsQueue.push(this.derivativePairs[Math.floor(Math.random() * totalExpressions)]);
       }
       this.songDuration = songDuration;
+      this.shuffleArray(this.expressionsQueue);
     };
     audio.load();
     audio.play();
@@ -82,8 +93,6 @@ export class DerivativeHeroComponent implements OnInit {
 
 
   ngOnInit() {
-    this.numbers = Array(100).fill(0).map((x, i) => i);
-    this.derivativePairs = this.derivativePairService.getAllDerivativePairs();
     this.configureLevel();
   }
 
