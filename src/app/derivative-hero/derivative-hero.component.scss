@@ -16,10 +16,10 @@ ion-content {
 
 .trapezoid-guitar {
   position: absolute;
-  width: 70%;
+  width: 80%;
   height: 150vh;
   background-color: #000000D0;
-  transform: perspective(10px) rotateX(0.5deg);
+  transform: perspective(10px) rotateX(0.25deg);
   margin: 50px;
   display: flex;
 }
