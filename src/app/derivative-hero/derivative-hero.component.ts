@@ -110,7 +110,7 @@ export class DerivativeHeroComponent implements OnInit {
         }
       }
     }
-  }, 3000);
+  }, 4000);
 
   constructor(private derivativePairService: DerivativePairService) { }
 
