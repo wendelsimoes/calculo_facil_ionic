@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'calculo_facil',
+  appId: 'com.wendelsimoes.clculofcil',
+  appName: 'Cálculo Fácil',
   webDir: 'www',
   bundledWebRuntime: false
 };
