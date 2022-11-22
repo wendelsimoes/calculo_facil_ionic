@@ -18,6 +18,11 @@
         [mathjax]="'$'+item.derivativePair.expression+'$'"></div>
       </div>
     </div>
+    <div class="absolute flex fire-container">
+      <div class="flex-1 bg-fire" [ngStyle]="{'visibility': fireEffect1 ? 'visible' : 'hidden'}"></div>
+      <div class="flex-1 bg-fire" [ngStyle]="{'visibility': fireEffect2 ? 'visible' : 'hidden'}"></div>
+      <div class="flex-1 bg-fire" [ngStyle]="{'visibility': fireEffect3 ? 'visible' : 'hidden'}"></div>
+    </div>
     <div class="trapezoid-buttons">
       <div class="flex-1">
         <div (click)="submitAnswer(1, buttonDerivative1)" class="button-squared bg-yellow font-md" [mathjax]="'$'+buttonDerivative1+'$'"></div>

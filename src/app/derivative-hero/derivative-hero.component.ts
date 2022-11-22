@@ -23,6 +23,10 @@ export class DerivativeHeroComponent implements OnInit {
   currentSong!: HTMLAudioElement;
   fourthInQueue: any;
 
+  fireEffect1: boolean = false;
+  fireEffect2: boolean = false;
+  fireEffect3: boolean = false;
+
   playWrongAnswerAudio() {
     const audio = new Audio('../../assets/audio/wrong-guitar-note.mp3');
     audio.load();
@@ -148,16 +152,26 @@ export class DerivativeHeroComponent implements OnInit {
             switch (i) {
               case 0:
                 this.leftQueue.shift();
+                this.fireEffect1 = true;
                 break;
               case 1:
                 this.middleQueue.shift();
+                this.fireEffect2 = true;
                 break;
               case 2:
                 this.rightQueue.shift();
+                this.fireEffect3 = true;
                 break;
               default:
                 break;
             }
+
+            const hideFire = setTimeout(() => {
+              this.fireEffect1 = false;
+              this.fireEffect2 = false;
+              this.fireEffect3 = false;
+              clearTimeout(hideFire);
+            }, 500);
           } else {
             this.currentSong.pause();
             this.playWrongAnswerAudio();
