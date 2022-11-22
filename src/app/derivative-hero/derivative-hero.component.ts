@@ -20,8 +20,8 @@ export class DerivativeHeroComponent implements OnInit {
   buttonDerivative1: string = "";
   buttonDerivative2: string = "";
   buttonDerivative3: string = "";
-  queueTracker: number = 3;
   currentSong!: HTMLAudioElement;
+  fourthInQueue: any;
 
   playWrongAnswerAudio() {
     const audio = new Audio('../../assets/audio/wrong-guitar-note.mp3');
@@ -68,14 +68,14 @@ export class DerivativeHeroComponent implements OnInit {
     }
 
     if (bottomMostDerivative === this.buttonDerivative1) {
-      this.buttonDerivative1 = this.expressionsQueue[this.queueTracker].derivative;
-      this.queueTracker += 1;
+      this.buttonDerivative1 = this.fourthInQueue.derivative;
+      this.fourthInQueue = this.expressionsQueue[this.expressionsQueue.indexOf(this.fourthInQueue) + 1];
     } else if (bottomMostDerivative === this.buttonDerivative2) {
-      this.buttonDerivative2 = this.expressionsQueue[this.queueTracker].derivative;
-      this.queueTracker += 1;
+      this.buttonDerivative2 = this.fourthInQueue.derivative;
+      this.fourthInQueue = this.expressionsQueue[this.expressionsQueue.indexOf(this.fourthInQueue) + 1];
     } else if (bottomMostDerivative === this.buttonDerivative3) {
-      this.buttonDerivative3 = this.expressionsQueue[this.queueTracker].derivative;
-      this.queueTracker += 1;
+      this.buttonDerivative3 = this.fourthInQueue.derivative;
+      this.fourthInQueue = this.expressionsQueue[this.expressionsQueue.indexOf(this.fourthInQueue) + 1];
     }
   }, 50);
 
@@ -131,17 +131,20 @@ export class DerivativeHeroComponent implements OnInit {
           if (item.derivativePair.derivative === derivative) {
             switch (buttonIndex) {
               case 1:
-                this.buttonDerivative1 = this.expressionsQueue[this.queueTracker].derivative;
+                this.buttonDerivative1 = this.fourthInQueue.derivative;
                 break;
               case 2:
-                this.buttonDerivative2 = this.expressionsQueue[this.queueTracker].derivative;
+                this.buttonDerivative2 = this.fourthInQueue.derivative;
                 break;
               case 3:
-                this.buttonDerivative3 = this.expressionsQueue[this.queueTracker].derivative;
+                this.buttonDerivative3 = this.fourthInQueue.derivative;
                 break;
               default:
                 break;
             }
+
+            this.fourthInQueue = this.expressionsQueue[this.expressionsQueue.indexOf(this.fourthInQueue) + 1];
+
             switch (i) {
               case 0:
                 this.leftQueue.shift();
@@ -155,7 +158,6 @@ export class DerivativeHeroComponent implements OnInit {
               default:
                 break;
             }
-            this.queueTracker += 1;
           } else {
             this.currentSong.pause();
             this.playWrongAnswerAudio();
@@ -197,6 +199,7 @@ export class DerivativeHeroComponent implements OnInit {
         default:
           break;
       }
+      this.fourthInQueue = this.expressionsQueue[3];
     };
     this.currentSong = audio;
     this.currentSong.load();
