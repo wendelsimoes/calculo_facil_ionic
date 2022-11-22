@@ -52,13 +52,32 @@ ion-content {
 }
 
 .guitar-button {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   margin: 10px auto;
   border-radius: 100%;
   border: 5px solid #000000;
   text-align: center;
-  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-squared {
+  width: 90px;
+  height: 70px;
+  margin: 10px auto;
+  border-radius: 5px;
+  box-shadow: 3px 5px #ffffff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg-yellow {
+  background-color: var(--ion-color-warning);
+  color: #000000;
 }
 
 .bg-white {

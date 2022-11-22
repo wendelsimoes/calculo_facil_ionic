@@ -45,7 +45,7 @@ export class DerivativeHeroComponent implements OnInit {
 
     const bottomMostLeft = this.leftQueue[0];
     if (bottomMostLeft !== null && bottomMostLeft !== undefined) {
-      if (bottomMostLeft.top >= 700) {
+      if (bottomMostLeft.top >= 725) {
         bottomMostDerivative = this.leftQueue[0].derivativePair.derivative;
         this.leftQueue.shift();
       }
@@ -53,7 +53,7 @@ export class DerivativeHeroComponent implements OnInit {
 
     const bottomMostMiddle = this.middleQueue[0];
     if (bottomMostMiddle !== null && bottomMostMiddle !== undefined) {
-      if (bottomMostMiddle.top >= 700) {
+      if (bottomMostMiddle.top >= 725) {
         bottomMostDerivative = this.middleQueue[0].derivativePair.derivative;
         this.middleQueue.shift();
       }
@@ -61,7 +61,7 @@ export class DerivativeHeroComponent implements OnInit {
 
     const bottomMostRight = this.rightQueue[0];
     if (bottomMostRight !== null && bottomMostRight !== undefined) {
-      if (bottomMostRight.top >= 700) {
+      if (bottomMostRight.top >= 725) {
         bottomMostDerivative = this.rightQueue[0].derivativePair.derivative;
         this.rightQueue.shift();
       }
