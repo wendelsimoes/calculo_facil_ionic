@@ -171,7 +171,7 @@ export class DerivativeHeroComponent implements OnInit {
               this.fireEffect2 = false;
               this.fireEffect3 = false;
               clearTimeout(hideFire);
-            }, 500);
+            }, 400);
           } else {
             this.currentSong.pause();
             this.playWrongAnswerAudio();
